@@ -1,0 +1,179 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>net.xgf</groupId>
+		<artifactId>edu-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<groupId>net.xgf</groupId>
+	<artifactId>edu-ksbm</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<dependencies>
+		<!-- common -->
+		<dependency>
+			<groupId>net.xgf</groupId>
+			<artifactId>edu-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<!-- mapper层 -->
+		<dependency>
+			<groupId>net.xgf</groupId>
+			<artifactId>edu-manager-pojo</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<!-- Mybatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.miemiedev</groupId>
+			<artifactId>mybatis-paginator</artifactId>
+		</dependency>
+		<!-- 分页插件 -->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+		</dependency>
+		<!-- MySql -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<!-- 连接池 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+		</dependency>
+
+		<!--Service层 -->
+		<dependency>
+			<groupId>net.xgf</groupId>
+			<artifactId>edu-manager-mapper</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<!-- 依赖 -->
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+		</dependency>
+		<!-- 文件上传组件 -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+		</dependency>
+		<!-- JSP相关 -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jsp-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!-- Controller层 -->
+		<dependency>
+			<groupId>net.xgf</groupId>
+			<artifactId>edu-manager-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<!-- 验证码 -->
+		<dependency>
+			<groupId>com.github.penggle</groupId>
+			<artifactId>kaptcha</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.servlet</groupId>
+					<artifactId>javax.servlet-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- JSP相关 -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jsp-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- 文件上传组件 -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+		</dependency>
+		
+		<!-- shiro   -->
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-all</artifactId>
+		</dependency>
+
+		<!-- execl上传 -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sourceforge.jexcelapi</groupId>
+			<artifactId>jxl</artifactId>
+		</dependency>
+	</dependencies>
+	<!-- 添加tomcat插件 -->
+	<build>
+		<plugins>
+			<!-- 配置Tomcat插件 -->
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<port>8888</port>
+						<url>http://signup.51xgf.cn:81/manager/text</url>
+<!-- 					<url>http://signup.51xgf.cn:81/manager/html/list</url> -->
+					<username>tomcat-abkj</username>
+					<password>tomcat-abkj-123456</password>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
