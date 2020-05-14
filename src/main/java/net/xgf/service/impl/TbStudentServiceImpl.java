@@ -109,7 +109,6 @@ public class TbStudentServiceImpl implements TbStudentService {
 			student.setDeparment(null);
 			student.setNumber(null);
 			student.setSeatnumber(0);
-			student.setHeadurl(null);
 			student.setHealthurl(null);
 			student.setExamdate(null);
 			student.setExamtime(null);
