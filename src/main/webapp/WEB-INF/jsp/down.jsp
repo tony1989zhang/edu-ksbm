@@ -28,29 +28,43 @@
 <title>导出Excel</title>
 </head>
 <body style="background-color: #F3F3F3">
-	<hr>
-	<form id="ff" method="get">
-		<h3>
-			保存的路径为:<font color="red"><input id="path" type="text" name="path"
-				value="D:\\ksb.xls"></font>
-		</h3>
-		<input type="submit" class="easyui-linkbutton success" value="下载">
-	</form>
+	<h1>点击导出Excel</h1>
+	<a id="excelOut"  href="javascript:void(0)" class="easyui-linkbutton primary">导出Excel</a>
 	<script type="text/javascript">
-	$('#ff').form({
-	    url: '${pageContext.request.contextPath}/student/excepOut',
-	    onSubmit: function(){
-	    },
-	    success:function(data){
-	    	console.log('ceshi:' + data);
-	    	var json =eval("("+data+")");
-	    	if(json.status==200){
-	    		alert("导出成功,文件路径为:" + $("#path").val());
-	    		$("#studentOutWindow").window('close');
-	    	}
-			
-	    }
-	});
+		$("#excelOut")
+				.on(
+						'click',
+						function() {
+
+							$
+									.post(
+											"${pageContext.request.contextPath}/student/excepOut",
+											function(result) {
+												if (result.status == 200) {
+													$.messager
+															.show({
+																height : 42,
+																timeout : 1500,
+																showSpeed : 200,
+																msg : '<a href="http://signup.51xgf.cn:81/0_uploadfiles/ksb.xls">&nbsp; 点击保存到本地</a>',
+																style : {
+																	left : '',
+																	right : 20,
+																	top : document.body.scrollTop
+																			+ document.documentElement.scrollTop
+																			+ 20,
+																	'z-index' : 999,
+																	'box-shadow' : '0 1px 6px rgba(0,0,0,.2)'
+																}
+															});
+												} else {
+													console.log("测试:" + result);
+													$.messager
+															.alert("提示",
+																	"下载失败");
+												}
+											})
+						});
 	</script>
 </body>
 </html>

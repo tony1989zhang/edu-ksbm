@@ -64,8 +64,8 @@ public class TbStudentController {
 	
 	@RequestMapping("/excepOut")
 	@ResponseBody
-	public FjnyResult excepOut(@RequestParam String path) {
-		System.out.println("sss excepOut");
+	public FjnyResult excepOut() {
+		String path = "/gsh/ksbm/0_uploadfiles/ksb.xls";
 		List<TbStudent> list = tbStudentService.getAllTbStudentList();
 		try {
 			ExcelUtils.execlExport(list, path);
